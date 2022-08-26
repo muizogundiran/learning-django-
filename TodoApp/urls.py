@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import Home
+from app.views import DeleteTodo, Home
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , Home)
+    path('' , Home),
+    path('delete/<int:id>' , DeleteTodo , name="delete")
 ]

@@ -6,7 +6,7 @@
 .title {
     text-align: center;
     background-color: #f5f5f5;
-    color: green;
+    color: red;
     font-size: 40px;
     padding: 10px;
 }
@@ -19,13 +19,21 @@
     margin: 50px auto;
 }
 
-#addTodo {
+a {
+    text-decoration-style: none
+}
+
+.addTodo {
     border: none;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid blue;
     width: 300px;
     padding: 10px;
     outline: none;
     margin-right: 20px;
+}
+
+li:hover {
+    color: red;
 }
 
 #submitTodo {

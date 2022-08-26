@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,14 +11,27 @@
   <body>
     <h1 class="title">Todo App</h1>
 
-    <form action="" class="todo">
-      <input type="text" id="addTodo" name="addTodo" />
+    <form action="" class="todo" method="post">
+      {% csrf_token %}
+      <div>
+        {{ form.item|attr:"placeholder: Enter Todo" | add_class:"addTodo" }}
+      </div>
+      {{ form.status| add_class:"addTodo" }}
+      <!-- <input
+        type="text"
+        id="addTodo"
+        name="addTodo"
+        placeholder="Add todo item"
+      /> -->
       <input type="submit" id="submitTodo" name="submitTodo" value="Add Todo" />
     </form>
 
     <ul class="list">
-      <li>Meat</li>
-      <li>Fish</li>
+      {% for i in items %}
+      <a href="{% url 'delete' i.id %}">
+        <li>{{i.item}}</li>
+      </a>
+      {% endfor %}
     </ul>
   </body>
 </html>
